@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">FypApps</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name='login'>Login</string>
+    <string name='ac'>Account</string>
+    <string name='pw'>Password</string>
+    <string name='register'>Register</string>
+
+
+
+    <string name='rac'>Account</string>
+    <string name='rem'>Email</string>
+    <string name='rpw'>Password</string>
+    <string name='rcpw'>Confirm Password</string>
+    <string name='rname'>Name</string>
+    <string name='rbirth'>Birth</string>
+    <string name='rtype'>Type</string>
+    <string name='rr'>Gps Right</string>
+
+
+    <string name='wel'>Welcome</string>
+    <string name='Insert'>Insert Facility</string>
+    <string name='Map'>Search Facility</string>
+    <string name='Friend'>View Friend GPS</string>
+    <string name='Places'>View Places</string>
+    <string name='Logout'>Logout</string>
+    <string name='Profile'>View Profile</string>
+
+
+    <string name='selection'>Your Selection</string>
+
+
+    <string name='fcname'>Facility Name</string>
+    <string name='fctype'>Facility Type</string>
+    <string name='fcmark'>Facility Mark</string>
+    <string name='fcgivemark'>Give Mark</string>
+    <string name='fcdesc'>Comment</string>
+    <string name='fcinsert'>Insert</string>
+
+
+
+    <string name='profile'>Profile</string>
+    <string name='pac'>Account</string>
+    <string name='pname'>Name</string>
+    <string name='pemail'>Email</string>
+    <string name='pbirth'>Birth</string>
+    <string name='pgps'>GpsRight</string>
+    <string name='pupdate'>Update</string>
+    <string name='friendmanager'>Manage Friend</string>
+
+
+    <string name='updateProfile'>Update Profile</string>
+    <string name='enterprofile'>Enter</string>
+
+    <string name='viewfdgps'>View Friend GPS</string>
+    <string name='viewDate'>Date</string>
+    <string name='address'>Address</string>
+
+
+    <string name='ff'>Friend</string>
+    <string name='fb'>BlackList</string>
+    <string name='fn'>Invited</string>
+</resources>
