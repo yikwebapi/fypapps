@@ -54,9 +54,17 @@ public class MainActivity extends AppCompatActivity {
 
             Account ac = new Account(userid,account,type,gpsRight);
 
-            Intent i = new Intent(this, ControlPage.class);
-            i.putExtra("acdata",ac);
-             startActivity(i);
+
+            if (!type.equals("bd") && !type.equals("pd")) {
+                Intent i = new Intent(this, ControlPage.class);
+                i.putExtra("acdata", ac);
+                startActivity(i);
+            }else if (type.equals("bd") || type.equals("pd")) {
+                Intent i = new Intent(this, ControlPage1.class);
+                i.putExtra("acdata", ac);
+                startActivity(i);
+
+            }
         }
     }
     public void onButtonClick(View view) throws ExecutionException, InterruptedException {
@@ -89,10 +97,16 @@ public class MainActivity extends AppCompatActivity {
 
                Account acc = new Account(id,account,type,right);
                 Save(id,account,type,right);
+                if (!type.equals("bd") && !type.equals("pd")) {
+                    Intent i = new Intent(this, ControlPage.class);
+                    i.putExtra("acdata", acc);
+                    startActivity(i);
+                } else if (type.equals("bd") || type.equals("pd")) {
+                    Intent i = new Intent(this, ControlPage1.class);
+                    i.putExtra("acdata", acc);
+                    startActivity(i);
 
-                Intent i = new Intent(this, ControlPage.class);
-                i.putExtra("acdata",acc);
-                startActivity(i);
+                }
             }
 
 
@@ -134,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("ackey", acc);
         editor.putString("typekey", type);
         editor.putBoolean("gpskey", gpsright);
+        editor.putString("alert", "On");
         editor.commit();
     }
 

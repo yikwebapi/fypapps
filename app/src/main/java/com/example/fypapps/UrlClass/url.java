@@ -4,9 +4,8 @@ public class url {
 
   //  private String url = "https://fortestingonlyfyp.cf/fyp/jsonData/";
     //    private String url1 = "https://fortestingonlyfyp.cf/fyp";
-
-    private String url = "http://192.168.1.3/fyp/jsonData/";
-    private String url1 = "http://192.168.1.3/fyp/";
+    private String url = "http://223.18.213.197/fyp/jsonData/";
+    private String url1 = "http://223.18.213.197/fyp/";
 
 
     public String geturl() {

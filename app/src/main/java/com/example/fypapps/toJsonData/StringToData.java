@@ -241,4 +241,53 @@ public class StringToData {
     }
     //
 
+
+
+    public ArrayList<HashMap<String, String>> getSearchFriendList() {
+        ArrayList<HashMap<String,String>> al = new ArrayList();
+
+        if (result != "") {
+
+            try {
+                JSONArray jarray = new JSONArray(result);
+                for (int i = 0; i < jarray.length(); i++) {
+                    HashMap<String, String> hm = new HashMap<>();
+                    JSONObject jb = jarray.getJSONObject(i);
+                    hm.put("acc", jb.getString("acc"));
+                    hm.put("name", jb.getString("name"));
+                    al.add(hm);
+                }
+            } catch (JSONException e) {
+            }
+
+            //return login hashmap data
+        }
+        return al;
+    }
+
+
+    //insert facility
+    public HashMap<String, String> insertFChecker() {
+        HashMap<String, String> hm = new HashMap<>();
+
+        hm.put("successful", "F");
+        hm.put("dfid","0");
+        if (result != "") {
+
+            try {
+                JSONArray jarray = new JSONArray(result);
+                for (int i = 0; i < jarray.length(); i++) {
+                    JSONObject jb = jarray.getJSONObject(i);
+                    String successful = jb.getString("successful");
+                    int dfid = jb.getInt("dfid");
+                    hm.put("successful",successful);
+                    hm.put("dfid",dfid+"");
+                }
+            } catch (JSONException e) {
+            }
+            //return login hashmap data
+        }
+        return hm;
+    }
+    //end
 }

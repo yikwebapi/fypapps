@@ -77,7 +77,7 @@ public class DetailFacility extends AppCompatActivity {
         t43 = (TextView)findViewById(R.id.textView43);
         t44 = (TextView)findViewById(R.id.textView44);
         bt2 = (Button)findViewById(R.id.button2);
-
+        sp8 = (Spinner)findViewById(R.id.spinner8);
 
          denplace = hm.get("denplace").toString();
          type = hm.get("dename").toString();
@@ -85,7 +85,8 @@ public class DetailFacility extends AppCompatActivity {
          comment = (ArrayList)hm.get("desc");
          checker = hm.get("ok").toString();
         imageurl = url1 + "/process/" + hm.get("image").toString();
-
+        System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+        System.out.println(checker);
         if (checker.equals("F")) {
             ly.setVisibility(View.INVISIBLE);
             t43.setVisibility(View.INVISIBLE);

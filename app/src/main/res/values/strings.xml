@@ -63,4 +63,22 @@
     <string name='ff'>Friend</string>
     <string name='fb'>BlackList</string>
     <string name='fn'>Invited</string>
+    <string name='fs'>Search</string>
+
+
+    <string name='iX'>latitude</string>
+    <string name='iY'>longitude </string>
+    <string name='icn'>Chinese Address</string>
+    <string name='ien'>English Address</string>
+    <string name='itype'>Type</string>
+    <string name='ii'>Insert</string>
+
+
+
+
+
+
+    <string name='c1s'>Search</string>
+    <string name='c1f'>Facility</string>
+    <string name='c1p'>Places</string>
 </resources>

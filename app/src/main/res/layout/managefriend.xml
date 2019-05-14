@@ -18,6 +18,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fs"
+            android:textSize="28dp"
+            android:onClick="Search"/>
+
+        <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,10 +52,41 @@
             android:onClick='BlackList'
             android:text="@string/fb"
             android:textSize="28dp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout27"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout26">
+
+        <EditText
+            android:id="@+id/editText13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Friend Name/Account" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fs"
+            android:onClick="search1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout31"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -56,11 +96,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout26">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout27">
 
         <ListView
             android:id="@+id/lv1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

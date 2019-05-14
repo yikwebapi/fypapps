@@ -93,22 +93,22 @@ public class UpdateProfile extends AppCompatActivity implements AdapterView.OnIt
                 et4ac.setText(hm.get("account").toString());
                 et7email.setText(hm.get("email").toString());
 
-               // String birth = hm.get("birth").toString();
+                String birth = hm.get("birth").toString();
 
-             //   int Day = Integer.parseInt(birth.split("-")[2]);
-              //  int month = Integer.parseInt(birth.split("-")[1]);
-             //   int year = 2018- Integer.parseInt(birth.split("-")[0]);
+                int Day = Integer.parseInt(birth.split("-")[2]);
+                int month = Integer.parseInt(birth.split("-")[1]);
+                int year = 2018- Integer.parseInt(birth.split("-")[0]);
 
-             //   sp7Day.setSelection(Day-1);
-              //  sp9month.setSelection(month -1);
-              //  sp11Year.setSelection(year -1);
-              //  String gps = hm.get("gpsright").toString();
+               sp7Day.setSelection(Day-1);
+                sp9month.setSelection(month -1);
+                sp11Year.setSelection(year -1);
+                String gps = hm.get("gpsright").toString();
 
-               // if (gps.equals("T")) {
-               //     sp12GPS.setSelection(0);
-              //  } else {
-               //     sp12GPS.setSelection(1);
-               // }
+                if (gps.equals("T")) {
+                   sp12GPS.setSelection(0);
+                } else {
+                    sp12GPS.setSelection(1);
+                }
             }
         } catch (ExecutionException e) {
             e.printStackTrace();

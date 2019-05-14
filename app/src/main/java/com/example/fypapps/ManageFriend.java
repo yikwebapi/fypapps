@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.fypapps.Account.Account;
@@ -27,6 +29,12 @@ public class ManageFriend  extends AppCompatActivity {
     ArrayList<HashMap<String,String>> al = new ArrayList();
     ListView lv;
     String acname = "";
+
+    EditText ed13;
+    Button bt10;
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managefriend);
@@ -34,10 +42,19 @@ public class ManageFriend  extends AppCompatActivity {
         ac = (Account)getIntent().getSerializableExtra("acdata");
         lv = (ListView)findViewById(R.id.lv1);
 
+        ed13 = (EditText)findViewById(R.id.editText13);
+        bt10 = (Button)findViewById(R.id.button10);
+
+
+        ed13.setVisibility(View.INVISIBLE);
+        bt10.setVisibility(View.INVISIBLE);
+
     }
 
 
     public void invited(View v) {
+        ed13.setVisibility(View.INVISIBLE);
+        bt10.setVisibility(View.INVISIBLE);
         String newurl = url + "getinvited.php?userid=" + ac.getid();
         JsonDataGetter jdg = new JsonDataGetter(ManageFriend.this,newurl);
         try {
@@ -103,6 +120,8 @@ public class ManageFriend  extends AppCompatActivity {
     }
 
     public void Friend(View v) {
+        ed13.setVisibility(View.INVISIBLE);
+        bt10.setVisibility(View.INVISIBLE);
         String newurl = url + "getFriend.php?userid=" + ac.getid();
         JsonDataGetter jdg = new JsonDataGetter(ManageFriend.this,newurl);
         try {
@@ -163,6 +182,8 @@ public class ManageFriend  extends AppCompatActivity {
         }
     }
     public void BlackList(View v) {
+        ed13.setVisibility(View.INVISIBLE);
+        bt10.setVisibility(View.INVISIBLE);
         String newurl = url + "getblacklist.php?userid=" + ac.getid();
         JsonDataGetter jdg = new JsonDataGetter(ManageFriend.this, newurl);
         try {
@@ -179,7 +200,7 @@ public class ManageFriend  extends AppCompatActivity {
                 public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3) {
 
                     HashMap<String, String> hdata = (HashMap<String, String>) al.get((int) arg3);
-                     acname = hdata.get("acc");
+                    acname = hdata.get("acc");
 
                     //alertdialog
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ManageFriend.this);
@@ -212,6 +233,67 @@ public class ManageFriend  extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    public void Search(View v) {
+        ed13.setVisibility(View.VISIBLE);
+        bt10.setVisibility(View.VISIBLE);
+    }
+
+    public void search1(View v) {
+            String keyword = ed13.getText().toString();
+        String newurl = url + "searchfdbykw.php?search=" + keyword;
+        JsonDataGetter jdg = new JsonDataGetter(ManageFriend.this, newurl);
+        try {
+            String a = jdg.execute().get();
+            StringToData std = new StringToData(a);
+            al = std.getSearchFriendList();
+            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.lvtvdesign);
+            for (int i = 0; i < al.size(); i++) {
+                HashMap<String, String> frienddata = (HashMap<String, String>) al.get(i);
+                adapter.add(" Account : " + frienddata.get("acc") + " \n Name:" + frienddata.get("name"));
+            }
+            lv.setAdapter(adapter);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3) {
+
+                    HashMap<String, String> hdata = (HashMap<String, String>) al.get((int) arg3);
+                    acname = hdata.get("acc");
+
+                    //alertdialog
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ManageFriend.this);
+                    alertDialogBuilder.setTitle(acname);
+                    alertDialogBuilder.setMessage("Add Friend").setCancelable(false)
+                            .setPositiveButton("Add",new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+
+                                    String newurl = url + "updatesearchfriend.php?userid=" + ac.getid() + "&targetname=" + acname;
+                                    JsonDataGetter jdg = new JsonDataGetter(ManageFriend.this, newurl);
+                                    jdg.execute();
+                                    finish();
+                                    startActivity(getIntent());
+
+                                }
+                            })
+                            .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    // create alert dialog
+                    // show it
+                    alertDialogBuilder.show();
+                    //end of alertdialog
+                }
+            });
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

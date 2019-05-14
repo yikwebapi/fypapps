@@ -50,9 +50,8 @@ public class ViewFacility extends AppCompatActivity implements OnMapReadyCallbac
     String url = ul.geturl();
     String url1 = ul.geturl1();
     Account ac;
-
-    double X = 114.1911163;
-    double Y = 22.3048102;
+    double X = 114.1899843;
+    double Y = 22.304086;
 
     //New
     private GoogleMap mMap;
@@ -186,6 +185,8 @@ public class ViewFacility extends AppCompatActivity implements OnMapReadyCallbac
 
 
         }
+
+
     }
 
     @SuppressLint("MissingPermission")
@@ -194,7 +195,7 @@ public class ViewFacility extends AppCompatActivity implements OnMapReadyCallbac
 
         // Define a listener that responds to location updates
         // Register the listener with the Location Manager to receive location updates
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30*1000, 10, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30*1000, 10, locationListener);
 
     }
 
@@ -225,7 +226,7 @@ public class ViewFacility extends AppCompatActivity implements OnMapReadyCallbac
         // exceptions will be thrown if provider is not permitted.
         try {
             network_enabled = lm
-                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         } catch (Exception ex) {
         }
         if (network_enabled == false) {
